@@ -9,13 +9,12 @@ const purchaseRoutes = require('./routes/purchaseRoutes');
 const unitRoutes = require('./routes/unitRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const authRoutes = require('./routes/authRoutes');
-
+const indexRoutes = require('./routes/index');
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
-
 app.use('/api/customers', customerRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/sales', saleRoutes);
@@ -23,6 +22,7 @@ app.use('/api/purchases', purchaseRoutes);
 app.use('/api/units', unitRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/',indexRoutes);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
